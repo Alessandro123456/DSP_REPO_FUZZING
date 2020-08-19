@@ -4,4 +4,26 @@ services:
     image: 'dockersecplayground/afl:latest'
     stdin_open: true
     tty: true
-networks: {}
+  ServerHttps:
+    image: 'httpsheartbleed:latest'
+    stdin_open: true
+    tty: true
+    ports:
+      - '443:443'
+    networks:
+      network_2:
+        ipv4_address: 193.20.3.3
+  Metasploit:
+    image: 'dockersecplayground/kali:v1.0'
+    stdin_open: true
+    tty: true
+    networks:
+      network_2: {}
+    cap_add:
+      - ALL
+    privileged: true
+networks:
+  network_2:
+    ipam:
+      config:
+        - subnet: 193.20.3.1/24
