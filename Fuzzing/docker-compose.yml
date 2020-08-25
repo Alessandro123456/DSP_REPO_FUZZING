@@ -1,7 +1,7 @@
 version: '2'
 services:
   ComputerAFL:
-    image: 'dockersecplayground/afl:latest'
+    image: 'alessandro123456/afl:latest'
     stdin_open: true
     tty: true
   ServerHttps:
