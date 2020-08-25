@@ -5,11 +5,9 @@ services:
     stdin_open: true
     tty: true
   ServerHttps:
-    image: 'httpsheartbleed:latest'
+    image: 'alessandro123456/heartbleed:latest'
     stdin_open: true
     tty: true
-    ports:
-      - '443:443'
     networks:
       network_2:
         ipv4_address: 193.20.3.3
