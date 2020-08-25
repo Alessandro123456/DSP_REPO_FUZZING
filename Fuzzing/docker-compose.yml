@@ -24,8 +24,28 @@ services:
     image: 'alessandro123456/wfuzz:latest'
     stdin_open: true
     tty: true
+    networks:
+      network_1: {}
+  SERVERFTP1:
+    image: 'jbenninghoff/vsftpd:latest'
+    stdin_open: true
+    tty: true
+    networks:
+      network_1:
+        ipv4_address: 193.20.1.20
+  SERVERFTP2:
+    image: 'metabrainz/docker-anon-ftp:latest'
+    stdin_open: true
+    tty: true
+    networks:
+      network_1:
+        ipv4_address: 193.20.1.19
 networks:
   network_2:
     ipam:
       config:
         - subnet: 193.20.3.1/24
+  network_1:
+    ipam:
+      config:
+        - subnet: 193.20.1.1/24
