@@ -21,7 +21,7 @@ services:
       - ALL
     privileged: true
   ClientWfuzz:
-    image: 'dockersecplayground/client_wfuzz:latest'
+    image: 'alessandro123456/wfuzz:latest'
     stdin_open: true
     tty: true
 networks:
