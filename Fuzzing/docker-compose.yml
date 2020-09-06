@@ -20,12 +20,16 @@ services:
     cap_add:
       - ALL
     privileged: true
-  ClientWfuzz:
+  ClientWfuzzBoofuzz:
     image: 'alessandro123456/wfuzz:latest'
     stdin_open: true
     tty: true
+    ports:
+      - '26000:26000'
     networks:
       network_1: {}
+    volumes:
+      - '././:/home/boofuzz-results'
   SERVERFTP1:
     image: 'jbenninghoff/vsftpd:latest'
     stdin_open: true
